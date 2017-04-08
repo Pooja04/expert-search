@@ -1,0 +1,153 @@
+<?php
+
+/**
+ * @file
+ * custom module for Leadership Page list on About Us Page
+ */
+
+/**
+ * Implements hook_block_view().
+ */
+function custom_search_block_info() {
+  $blocks['search_block'] = array(
+      'info' => t('Search Block'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function custom_search_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'search_block':
+      $block['content'] = search_block_data();
+      break;
+  }
+  return $block;
+}
+
+/**
+ *
+ * @return string
+ */
+function search_block_data() {
+  return "<input type='text' id='searchbox'  placeholder='search by expert or area of expertise' autocomplete='off'/><div id='matches'></div>";
+}
+
+/**
+ * hook_views_pre_render().
+ */
+function custom_search_views_pre_render(&$view) {
+  if ($view->name == "home" || $view->name == "Expert_Search") {
+    $temp = 0;
+    foreach ($view->result as $key => $result) {
+      if ($temp == $result->nid) {
+        unset($view->result[$key]);
+      }
+      $temp = $result->nid;
+    }
+  }
+
+
+
+  if ($view->name == 'nodes_autocomplete' && $view->current_display == 'page') {
+
+    $other_view = views_get_view('taxo_autocomplete', TRUE); // <--- not sure if TRUE (reset) is required
+    $other_view->set_display('page'); // <--- important
+    $other_view->execute();
+    //$o = views_embed_view('taxo_autocomplete', 'page');
+
+    $view->result = array_merge($view->result, $other_view->result);
+    //print_r($view->result);
+  }
+}
+
+/**
+ * Implements hook_menu()
+ */
+function custom_search_menu() {
+  $items = array();
+
+  $items['autocomplete-data'] = array(
+      "title" => "",
+      "type" => MENU_NORMAL_ITEM,
+      "page callback" => "autocomplete_data",
+      "access arguments" => array("access content"),
+  );
+  return $items;
+}
+
+function autocomplete_data($string = '') {
+//  $data = array();
+//  $view_result = views_get_view_result('nodes_autocomplete', 'page');
+//  foreach ($view_result as $key => $value) {
+//    $alias = drupal_get_path_alias('node/' . $value->nid);
+//    $data[]['link'] = $alias;
+//    $data[]['value'] = $value->node_title;
+//    $data[]['fields']['title'] = $value->node_title;
+//  }
+//  echo json_encode($data);
+//  print_r($value);
+  // Anything yet?
+//  $string = 'can';
+  if (!$string) {
+    echo drupal_json_encode(array());
+    exit();
+  }
+
+  // Current user has the right to do that?!
+  if (!user_access('access content')) {
+    drupal_access_denied();
+    return;
+  }
+
+// Find node titles
+  $result_node = db_select('node', 'n')
+          ->fields('n', array('nid', 'title'))
+          ->condition('title', '%' . db_like($string) . '%', 'LIKE')
+          ->condition('type', 'experts')
+          ->execute();
+
+
+// Find taxonomies
+  $result_taxo = db_select('taxonomy_term_data', 't')
+          ->fields('t', array('tid', 'name'))
+          ->condition('name', '%' . db_like($string) . '%', 'LIKE')
+          ->execute();
+
+
+
+//  print_r($result_taxo);
+// Find user names
+  //$result_users .= db_select....
+  // Fill the matches array() see the .tpl.php file or the documentation to find out how should the json result looks like
+  $matches = array();
+  $temp_arr = array();
+  if (!empty($result_node)) {
+    while ($obj = $result_node->fetchObject()) {
+      $temp_arr = array();
+      $alias = drupal_get_path_alias('node/' . $obj->nid);
+      $temp_arr['link'] = $alias;
+      $temp_arr['value'] = $obj->title;
+      $matches[] = $temp_arr;
+    }
+  }
+  if (!empty($result_taxo)) {
+    while ($obj = $result_taxo->fetchObject()) {
+      $temp_arr = array();
+      $alias = drupal_get_path_alias('taxonomy/term/' . $obj->tid);
+      $temp_arr['link'] = $alias;
+      $temp_arr['value'] = $obj->name;
+      $matches[] = $temp_arr;
+    }
+  }
+
+
+
+//  print_r($matches);
+// Serve the result as JSON
+  echo drupal_json_encode($matches);
+  exit();
+}

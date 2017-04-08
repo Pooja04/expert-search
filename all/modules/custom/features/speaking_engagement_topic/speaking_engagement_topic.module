@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Speaking Engagement Topic feature.
+ */
+
+include_once 'speaking_engagement_topic.features.inc';

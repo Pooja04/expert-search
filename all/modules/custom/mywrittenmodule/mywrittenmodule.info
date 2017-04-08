@@ -1,0 +1,5 @@
+name = My written module
+Description = Checking whether I know to write module myself 
+core = 7.x
+package = Custom
+version = 7.x.43

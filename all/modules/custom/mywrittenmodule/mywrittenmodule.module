@@ -1,0 +1,62 @@
+<?php
+
+function mywrittenmodule_menu(){
+    $items=array();
+    $items['handmade/menu']=array(
+      'title'=>'Handmade Menu Title',
+        'page callback'=>'handmade_menu',
+        'access arguments'=>array('access_arg1'),
+        'type'=>MENU_NORMAL_ITEM
+    );
+    
+    $items['admin/handmade/form']=array(
+      'title'=>'Handmade Menu Title',
+        'page callback'=>'drupal_get_form',
+        'page arguments'=>array('handmade_form'),
+        'access arguments'=>array('access_arg'),
+        'type'=>MENU_NORMAL_ITEM
+    );
+    return $items;
+}
+
+function handmade_menu(){
+    $var = 'See the handmade menu has come up!!';
+    return theme('my_handmade_theme',array('var'=>$var));
+}
+function handmade_form($form,&$form_state){
+    $map_var='First';
+    $form['map_text']= array(
+        '#type'=>'textarea',
+        '#title'=>'Form title',
+        '#value'=>variable_get('map_var')
+    );
+    $form['#submit'][]='handmade_submit';
+    return system_settings_form($form);
+}
+function handmade_submit($form,&$form_state){
+    $map=$form_state['input']['map_text'];
+    variable_set('map_var',$map);
+}
+
+function mywrittenmodule_theme(){
+    $htv="hey the variable";
+    $path=drupal_get_path('module','mywrittenmodule');
+    return array(
+        'my_handmade_theme'=>array(
+            'variables'=>array('yup'=>$htv),
+            'template'=>'handmade_menu_theme',
+            'path'=>$path
+        )
+    );
+}
+
+
+
+function mywrittenmodule_permission(){
+    return array(
+        'access_arg'=>array(
+        'title'=>t('Give the handmade permission'),
+        'description'=>t('Have a look at handmade permission description'),
+            )
+    );
+}

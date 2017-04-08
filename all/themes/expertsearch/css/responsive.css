@@ -1,0 +1,559 @@
+/*====================meadia queries start here==========================*/
+
+@media screen and (max-width:980px) {
+
+  .poll-form.search-field {
+    width: 56%;
+  }
+
+  .poll-form.search-field input[type="text"],
+  .poll-form.search-field #edit-submit {
+    width: 96%;
+  }
+
+  #header-inside-left {
+    width: 416px;
+  }
+
+  #header-inside-right {
+    margin: 0px;
+    width: 274px;
+  }
+
+  #header-menu #block-menu-menu-registration-menus ul.menu li {
+    display: block;
+    float: none;
+  }
+
+  #header-menu #block-menu-menu-registration-menus ul.menu li.first {
+    margin: 0 0 10px;
+  }
+
+  .front .view-tag-link-wrapper {
+    width: 95%;
+  }
+
+  /*--SOF inner page menu--*/
+
+  div.sf-accordion-toggle.sf-style-default > a::after {
+    content: "≡";
+    font-size: 4.5em;
+    left: 0px;
+    top: 44%;
+    float: left;
+  }
+
+  #block-superfish-2 {
+    right: 0;
+    width: 20%;
+  }
+
+  #block-superfish-2 #superfish-2-toggle {
+    background-color: transparent;
+    border: 0 none;
+    outline: none;
+  }
+
+  #block-superfish-2 ul.sf-menu.sf-accordion,
+  #block-superfish-2 ul.sf-menu.sf-accordion ul,
+  #block-superfish-2 ul.sf-menu.sf-accordion li {
+    width: 154px;
+  }
+
+  #block-superfish-2 div.sf-accordion-toggle.sf-style-default a {
+    color: #b1862b;
+  }
+
+  #block-superfish-2 ul.sf-menu.sf-style-default {
+    position: absolute;
+    margin-top: 5px;
+  }
+
+  #block-superfish-2 .sf-menu.sf-style-default li,
+  #block-superfish-2 .sf-menu.sf-style-default.sf-navbar {
+    background: none #b1862b;
+  }
+
+  #block-superfish-2 .sf-menu.sf-style-default li:hover,
+  #block-superfish-2 .sf-menu.sf-style-default.sf-navbar:hover {
+    background: none #B78F38;
+  }
+
+  #block-superfish-2 .sf-menu.sf-style-default a,
+  #block-superfish-2 .sf-menu.sf-style-default a:visited,
+  #block-superfish-2 .sf-menu.sf-style-default span.nolink {
+    border-left: 0 none;
+    color: #ffffff;
+  }
+
+  #block-superfish-2 .sf-menu.sf-style-default a:hover {
+    border-top: 1px solid #cfdeff;
+  }
+
+  #highlighted-top #block-custom-search-search-block {
+    width: 48%;
+  }
+
+  .node-experts.node--experts--full .expert-details-wrapper {
+    padding: 20px 24px;
+  }
+
+  .node-experts.node--experts--full .spotlight-wrapper {
+    width: 33%;
+  }
+
+  .view-Expert-Search #feature-expert-wrapper, .view-map-location-experts #feature-expert-wrapper {
+    width: 60%;
+  }
+
+  .view-id-Expert_Search.view-display-id-experts_a_to_z .spotlight-wrapper,
+  .view-id-Expert_Search.view-display-id-experts_by_expertise .spotlight-wrapper {
+    width: 40%;
+  }
+
+  .view-Expert-Search #feature-expert-wrapper .expert-img,
+  .view-map-location-experts #feature-expert-wrapper .expert-img {
+    margin-bottom: 15px;
+    width: 175px;
+  }
+
+  .page-expertise .view-expertise .view-header ul.expertise-fix-header {
+    width: auto;
+  }
+
+  .page-expertise .view-expertise .view-header ul.expertise-term-list li {
+    margin: 0;
+  }
+
+  .page-expertise .view-expertise .view-header ul.expertise-term-list li a {
+    padding: 2px 6px;
+  }
+
+  .view-Expert-Search #feature-expert-wrapper .expert-info,
+  .view-map-location-experts #feature-expert-wrapper .expert-info {
+    width: 92%;
+  }
+
+  .node--experts--full .expert-details-wrapper .area-of-expertise-taxo {
+    margin-left: 0px !important;
+  }
+
+  /*--EOF inner page menu--*/
+
+  .front .flexslider .views-field.views-field-title a {
+    font-size: 1.2em;
+  }
+
+  .front .flexslider .slides > li {
+    max-height: 400px;
+    min-height: 400px;
+  }
+
+}
+
+@media screen and (max-width:768px) {
+
+  #header-menu .block-superfish {
+    height: 30px;
+    position: absolute;
+    width: 94%;
+  }
+
+  .sf-accordion-toggle #superfish-1-toggle {
+    border: 0px none;
+    background: none transparent;
+    color: #3D6A8D;
+  }
+
+  .sf-accordion-toggle #superfish-1-toggle span {
+    color: #000000;
+    font-size: 16px;
+    font-family: "Open Sans",sans-serif;
+    font-weight: 400;
+    /*margin-left: 15px;*/
+  }
+
+  #superfish-1-accordion {
+    background-color: #E0DDD5;
+  }
+
+  #navigation .block-superfish ul.sf-menu {
+    margin-top: 28px;
+  }
+
+  #navigation .block-superfish ul.sf-menu li.first a {
+    padding-left: 10px;
+  }
+
+  #navigation .block-superfish ul.sf-menu li.last a {
+    margin-right: 25px;
+  }
+
+  #header-menu #navigation .block-superfish ul.sf-menu li:nth-last-child(4),
+  #header-menu #navigation .block-superfish ul.sf-menu li:nth-last-child(3),
+  #header-menu #navigation .block-superfish ul.sf-menu li:nth-last-child(2),
+  #header-menu #navigation .block-superfish ul.sf-menu li:nth-last-child(1) {
+    display: block;
+  }
+
+  #header-menu #navigation .block-superfish ul.sf-menu li:nth-last-child(4) a {
+    margin-top: 10px;
+  }
+
+  #header-menu #navigation .block-superfish ul.sf-menu li:nth-last-child(4) a,
+  #header-menu #navigation .block-superfish ul.sf-menu li:nth-last-child(3) a,
+  #header-menu #navigation .block-superfish ul.sf-menu li:nth-last-child(2) a,
+  #header-menu #navigation .block-superfish ul.sf-menu li:nth-last-child(1) a {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  #block-menu-menu-top-menu ul.menu li {
+    display: none;
+  }
+
+  #header-menu #block-menu-menu-registration-menus ul.menu li {
+    display: inline-block;
+    float: left;
+  }
+
+  #header-menu #block-menu-menu-registration-menus ul.menu li.first {
+    margin: 0;
+  }
+
+  .front .flexslider .views-field.views-field-title {
+    margin: 10px 0 5px;
+  }
+
+  #quotes-wrapper {
+    margin: 10px 0 0;
+  }
+
+  .pane-custom-search-search-block input#searchbox {
+    width: 92%;
+  }
+
+
+  #footer #footer-inside .footer-area:nth-child(1),
+  #footer #footer-inside .footer-area:nth-child(2),
+  #footer #footer-inside .footer-area:nth-child(3),
+  #footer #footer-inside .footer-area:nth-child(4),
+  #footer  #footer-inside .footer-area {
+    width: 47%;
+    border-bottom: 1px dashed #cccccc;
+    min-height: 264px;
+    padding-bottom: 20px;
+  }
+
+}
+
+@media screen and (max-width:767px) {
+
+  #header-inside-left {
+    width: auto;
+  }
+
+  #header-inside-right {
+    margin: 0 10px;
+    width: auto;
+  }
+
+  #block-custom-form-block-custom-block {
+    float: left;
+  }
+
+  #footer #footer-inside .footer-area:nth-child(1),
+  #footer #footer-inside .footer-area:nth-child(2),
+  #footer #footer-inside .footer-area:nth-child(3),
+  #footer #footer-inside .footer-area:nth-child(4),
+  #footer #footer-inside .footer-area {
+    width: 97%;
+  }
+
+  .node-type-experts .flexslider .flex-direction-nav a.flex-prev {
+    left: -12px;
+  }
+
+  .node-type-experts .flexslider .flex-direction-nav a.flex-next {
+    right: -12px;
+  }
+
+  .page-expertise .view-expertise .item-list > ul {
+    width: 92%;
+  }
+
+  /*---SOF individual expert page css---*/
+
+  .node-experts.node--experts--full .expert-details-wrapper {
+    text-align: center;
+    padding: 20px;
+    width: 92%;
+  }
+
+  .node-experts.node--experts--full .expert-details-wrapper .image {
+    float: none;
+    margin: 0 auto 15px;
+  }
+
+  .node-experts.node--experts--full .spotlight-wrapper {
+    margin-top: 20px;
+    padding: 0;
+    width: 100%;
+  }
+
+  .node-experts.node--experts--full .spotlight-wrapper .spotlight_title,
+  .node-experts.node--experts--full .spotlight-wrapper .spotlight_date,
+  .node-experts.node--experts--full .spotlight-wrapper .spotlight_location {
+    margin: 15px 10px;
+  }
+
+  .node-experts.node--experts--full .spotlight-wrapper .spotlight_body {
+    margin: 0 10px;
+  }
+
+  /*---EOF individual expert page css---*/
+
+}
+
+
+@media screen and (max-width:680px) {
+
+  .front #content {
+    overflow: hidden;
+  }
+
+  #expertise-search-block .pane-content {
+    width: 100%;
+  }
+
+  .pane-custom-search-search-block input#searchbox {
+    width: 92%;
+  }
+
+  #matches {
+    width: 95% !important;
+  }
+
+  .pane-custom.pane-2 .view-tag {
+    position: initial;
+    top: auto;
+    right: auto;
+    text-align: center;
+  }
+
+  .pane-custom-search-search-block input#searchbox {
+    padding: 10px;
+    width: 96%;
+  }
+
+  #matches {
+    width: 98% !important;
+  }
+
+  /*---SOF inner page css---*/
+
+  #highlighted-top #block-custom-search-search-block {
+    width: 54%;
+  }
+
+  #highlighted-top #block-custom-search-search-block .content input#searchbox {
+    padding: 10px;
+  }
+
+  #block-superfish-2 {
+    /*clear: left;*/
+    margin-right: 20px;
+    width: auto;
+  }
+
+  #block-superfish-2 ul.sf-menu.sf-accordion,
+  #block-superfish-2 ul.sf-menu.sf-accordion ul,
+  #block-superfish-2 ul.sf-menu.sf-accordion li {
+    width: 154px;
+  }
+
+  .view-Expert-Search #feature-expert-wrapper, .view-map-location-experts #feature-expert-wrapper {
+    text-align: center;
+    width: 100%;
+  }
+
+  .view-Expert-Search #feature-expert-wrapper .expert-img, .view-map-location-experts #feature-expert-wrapper .expert-img {
+    float: none;
+    margin: 0 auto 15px;
+    width: 175px;
+  }
+
+  .view-Expert-Search #feature-expert-wrapper .expert-info,
+  .view-map-location-experts #feature-expert-wrapper .expert-info {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .view-id-Expert_Search.view-display-id-experts_a_to_z .spotlight-wrapper,
+  .view-id-Expert_Search.view-display-id-experts_by_expertise .spotlight-wrapper,
+  .view-map-location-experts .views-field-views-conditional .spotlight-wrapper {
+    margin-top: 20px;
+    padding: 0;
+    width: 100%;
+  }
+
+  .page-expertise .view-expertise .view-header ul.expertise-term-list li {
+    margin-right: 1px;
+    margin-bottom: 10px;
+  }
+
+
+  /*---EOF inner page css---*/
+}
+
+@media screen and (max-width:600px) {
+  #highlighted-top #block-custom-search-search-block {
+    width: 100%;
+  }
+
+  #highlighted-top #block-custom-search-search-block .content input#searchbox {
+    padding: 8px 6px;
+    width: 96%;
+  }
+
+  #block-block-8 {
+    margin: 20px 0px;
+  }
+}
+
+@media screen and (max-width:480px) {
+
+  .region.region-header-top {
+    float: none;
+  }
+
+  #block-menu-menu-top-menu{
+    display: block;
+  }
+
+  #block-menu-menu-top-menu ul.menu {
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  #block-menu-menu-top-menu ul.menu li.last a {
+    padding: 0;
+  }
+
+  #feature-expert-wrapper .feature-exp-col {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  #feature-expert-wrapper .expert-img {
+    text-align: center;
+  }
+
+  #feature-expert-wrapper .feature-exp-col.expert-contact-info {
+    margin-bottom: 0;
+    width: 100%;
+  }
+
+  #block-custom-user-authentication-custom-user-authentication {
+    float: right;
+  }
+
+  #block-menu-menu-top-menu {
+    display: none;
+  }
+
+  .front .views-slideshow-cycle-main-frame {
+    min-height: 300px;
+  }
+
+  .pane-custom-search-search-block input#searchbox {
+    font-size: 12px;
+  }
+
+  .node-experts.node--experts--full .expert-details-wrapper {
+    width: 90%;
+  }
+
+  .node-experts.node--experts--full .expert-details-wrapper .image {
+    float: none;
+    margin: 0 auto 15px;
+  }
+
+  .node-experts.node--experts--full .expert-details-wrapper .expert-title {
+    text-align: center;
+  }
+
+  .node-experts.node--experts--full .spotlight-wrapper {
+    width: 100%;
+  }
+
+  .pane-custom-search-search-block input#searchbox {
+    width: 95%;
+  }
+
+  .page-expertise .view-expertise .item-list > ul {
+    width: 90%;
+  }
+
+  .page-expertise .view-expertise .item-list li.views-row {
+    padding: 0 0 0 5px;
+    width: 96%;
+  }
+
+  /*---SOF individual expert page css---*/
+
+  .node-type-experts .node--experts--full .flexslider .flex-viewport .slides > li {
+    overflow: hidden;
+    min-height: 360px;
+  }
+
+  .node-type-experts .node--experts--full .flexslider ul.slides li .flex-image {
+    float: none;
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .node-type-experts .node--experts--full .flexslider ul.slides li .flex-title.flex-items {
+    margin: 5px 0;
+    padding: 0 5px;
+  }
+
+  .node-type-experts .node--experts--full .flexslider ul.slides li .flex-date.flex-items {
+    padding: 0 5px;
+  }
+
+  .node-type-experts .node--experts--full .flexslider ul.slides li .flex-body.flex-items {
+    margin-bottom: 5px;
+    padding: 0 5px;
+  }
+
+  .node-type-experts .node--experts--full .flexslider ul.slides li .flex-link.flex-items {
+    text-align: right;
+  }
+
+  /*---EOF individual expert page css---*/
+
+
+}
+
+@media screen and (max-width:360px) {
+
+  .front .views-slideshow-cycle-main-frame {
+    min-height: 320px;
+  }
+
+  .pane-custom-search-search-block input#searchbox {
+    width: 94%;
+  }
+
+}
+
+@media screen and (max-width:320px) {
+
+  .front .views-slideshow-cycle-main-frame {
+    min-height: 390px;
+  }
+
+}
+
+/*====================meadia queries end here==========================*/

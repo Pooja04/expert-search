@@ -1,0 +1,46 @@
+(function ($) {
+
+  $(document).ready(function () {
+    $('#searchbox').keyup(function (e) {
+      //e.preventDefault();
+      var searchkey = $(this).val();
+      //var formData = {"searchkey": searchkey};
+      //  alert('/expert-search/autocomplete-data/' + searchkey);
+      $.ajax({
+        type: 'POST',
+        url: Drupal.settings.basePath + 'autocomplete-data/' + searchkey,
+        //data: formData,
+        dataType: 'html',
+        success: function (data) {
+//          console.log(data);
+          var search_data = '';
+          var parsed_data = $.parseJSON(data);
+          for (var key in parsed_data) {
+            console.log(key, parsed_data[key]);
+            search_data += "<a href='" Drupal.settings.basePath + parsed_data[key].link + "'>" + parsed_data[key].value + "</a>";
+
+          }
+          $("#matches").html(search_data);
+
+//          console.log(parsed_data);
+//          parsed_data.each(function ($key, $val) {
+//            console.log($val);
+//          });
+        }
+      });
+
+    });
+
+    $("#matches").on('click', 'a', function () {
+      $('#searchbox').val($(this).text());
+      $("#matches").hide();
+    });
+
+
+
+
+
+  });
+
+
+})(jQuery);

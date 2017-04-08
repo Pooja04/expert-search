@@ -1,0 +1,61 @@
+<?php
+
+function mywrittenmodule_menu(){
+$items=array();
+
+$items['example/data']=array(
+'title'=>'Demo example',
+'page callback'=>'demo_example',
+'access arguments' => array('access_content'),
+'type'=>MENU_SUGGESTED_ITEM
+);
+
+$items['example/form']=array(
+'title'=>'Demo example',
+'page callback'=>'drupal_get_form',
+    'page arguments'=>array('my_form'),
+'access arguments' => array('access_content'),
+'type'=>MENU_NORMAL_ITEM
+);
+return $items;
+}
+
+function demo_example(){
+$see= 'It has come';
+return theme('my_theme',array('see'=>$see));
+}
+
+function my_form($form,&$form_state){
+    $form['test_textbox']=array(
+        '#type'=>'textarea',
+        '#title'=>'Test it',
+        '#value'=>variable_get('see_variable')
+    );
+    $form['#submit'][]='my_form_submit';
+    return system_settings_form($form);
+}
+function my_form_submit($form,&$form_state){
+    $see_variable='nice';
+    variable_set('see_variable',$see_variable);
+}
+
+function mywrittenmodule_theme(){
+    $path=drupal_get_path('module','mywrittenmodule');
+    return array(
+        'my_theme'=>array(
+            'template'=>'my-test',
+            'path'=>$path
+        )   
+    );
+}
+
+function mywrittenmodule_permission(){
+   return array( 'access_content'=>array(
+        'title'=>t('My permission'),
+        'description'=>t('permision permision permiion')
+    )
+      );
+           
+}
+
+?>

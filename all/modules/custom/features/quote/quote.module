@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Quote feature.
+ */
+
+include_once 'quote.features.inc';

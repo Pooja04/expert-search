@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * @file
+ * Render an expertsearch general menu for configuration of map title and summary
+ */
+
+/**
+
+ * Implementation of hook_menu().
+
+ */
+function expertsearch_general_menu() {
+
+  $items['admin/expertsearch/general'] = array(
+      'title' => 'Expert Search Configuration',
+      'page callback' => 'drupal_get_form',
+      'access arguments' => array('administer site'),
+      'page arguments' => array('expertsearch_general_settings_form'),
+      'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Creates/returns a form to configure the block's variables.
+ *
+ * @param array $form
+ * @param array $form_state
+ * @return array
+ */
+function expertsearch_general_settings_form($form, &$form_state) {
+
+  $form['map_title'] = array(
+      '#type' => 'textarea',
+      '#title' => 'Map Title',
+      '#value' => 'hell'
+  );
+  $form['map_summary'] = array(
+      '#type' => 'textarea',
+      '#title' => 'Map Summary',
+      '#value' => variable_get('map_summary'),
+  );
+  
+
+    
+   // return $form;
+//  
+ $form['#submit'][] = 'expertsearch_general_settings_form_submit';
+  return system_settings_form($form);
+
+}
+
+/**
+ * Form submission handler to set the variable.
+ */
+function expertsearch_general_settings_form_submit($form, &$form_state) {
+    $map_title="heller";
+ // $map_title = $form_state['input']['map_title'];
+  //variable_set('map_title', $map_title);
+  $map_summary = $form_state['input']['map_summary'];
+  variable_set('map_summary', $map_summary);
+}
+
+/**
+ * Implements hook_permission().
+ */
+function expertsearch_general_permission() {
+  return array(
+      'administer site' => array(
+          'title' => t('Administer permission for Expert Search configuration'),
+          'description' => t('Allows editing text of a map title.'),
+      ),
+  );
+}

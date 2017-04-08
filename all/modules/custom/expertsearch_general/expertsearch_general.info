@@ -1,0 +1,8 @@
+name = Expert Search General Settings
+description = A module to  demo drupals menu system
+package = Menu Demo Package
+core = 7.x
+
+version = "7.x-1"
+project = "drupal"
+datestamp = "1332461528"

@@ -1,0 +1,43 @@
+name = Expert Search
+description = This is a sub-theme of theme Corporate Clean.
+version = VERSION
+core = 7.x
+base theme = corporateclean
+
+stylesheets[all][] = color/colors.css
+stylesheets[all][] = css/custom.css
+stylesheets[all][] = css/responsive.css
+stylesheets[all][] = css/font-awesome.css
+stylesheets[all][] = css/font-awesome.min.css
+stylesheets[all][] = css/flexslider.css
+
+scripts[] = js/enscroll.min.js
+scripts[] = js/script.js
+scripts[] = js/jquery.flexslider.js
+
+regions[header_top] = Header Top
+regions[search_area] = Search area
+regions[navigation] = Navigation
+regions[banner] = Banner
+regions[highlighted_top] = Highlighted Top
+regions[highlighted] = Highlighted
+regions[content] = Content
+regions[sidebar_first] = First sidebar
+regions[sidebar_second] = Second sidebar
+regions[disclaimer] = Disclaimer
+regions[footer_first] = Footer first
+regions[footer_second] = Footer second
+regions[footer_third] = Footer third
+regions[footer_fourth] = Footer fourth
+regions[footer] = Footer
+regions[footer_bottom_right] = Footer bottom right
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+
+; Information added by Drupal.org packaging script on 2014-08-26
+version = "7.x-2.3"
+core = "7.x"
+project = "expertsearch"
+datestamp = "1409051936"
+

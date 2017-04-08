@@ -1,0 +1,120 @@
+<?php
+
+/**
+ * @file
+ * custom module for user authentication.
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function custom_user_authentication_block_info() {
+  $blocks = array();
+
+  $blocks['custom_user_authentication'] = array(
+      'info' => t('Custom login block'),
+  );
+
+  $blocks['custom_welcome_block'] = array(
+      'info' => t('Custom welcome block example'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function custom_user_authentication_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'custom_user_authentication' :
+      $block['subject'] = t('Custom login block');
+      $block['content'] = custom_login();
+      break;
+
+    case 'custom_welcome_block' :
+      $block['subject'] = t('Custom block');
+      $block['content'] = custom_welcome();
+      break;
+  }
+
+  return $block;
+}
+
+
+function custom_login() {
+  global $base_url;
+
+  if (isset($_COOKIE['nehgs'])) {
+    $cookie_array = drupal_get_query_array($_COOKIE['nehgs']);
+  }
+
+
+  $path = drupal_get_path_alias(current_path());
+
+  if (isset($cookie_array['fn'])) {
+
+    return "<a href='" . $base_url . "/expertsearch/logout?return_url=" . "/" . $path
+            . "' title=''>Log Out</a>";
+  } else {
+
+    return "<a href='http://www.americanancestors.org/login/?return-url=" . $base_url . "/" . $path . "' title=''>Log In</a>";
+  }
+}
+
+/**
+ * Page callback for the "Welcome Block after checking the availability of cookies".
+ */
+function custom_welcome() {
+// print_r($_COOKIE);
+  //setcookie("nehgs", "at=220062&pd=2|1&em=amit.sharma@datamatics.com&fn=Amit", 0, "/", ".americanancestors.org", 0);
+  //ini_set("session.cookie_domain", ".americanancestors.org");
+  $CookieInfo = session_get_cookie_params();
+
+  if (isset($_COOKIE['nehgs'])) {
+    $cookie_array = drupal_get_query_array($_COOKIE['nehgs']);
+  }
+
+  if (isset($cookie_array['fn'])) {
+    $values = "Welcome " . $cookie_array['fn'];
+    return $values;
+  } else {
+    return 0;
+  }
+}
+
+/**
+
+ * Implementation of hook_menu().
+
+ */
+function custom_user_authentication_menu() {
+
+  $items['expertsearch/logout'] = array(
+      'title' => 'Expert Search Configuration',
+      'access callback' => TRUE,
+      'page callback' => 'delete_cookie',
+      'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Page callback to delete the cookies and logout the user.
+ */
+function delete_cookie() {
+
+
+  setcookie("nehgs", "", 1, "/", ".americanancestors.org", 0);
+  global $base_url;
+  $return_url = isset($_GET['return_url']) ? $_GET['return_url'] : '';
+  header("Location: " . $base_url . $return_url);
+  return '';
+}
+
+
+?>
+

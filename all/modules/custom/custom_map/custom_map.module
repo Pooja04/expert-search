@@ -1,0 +1,105 @@
+<?php
+
+/**
+ * @file
+ * custom module for implementation of  map on home page.
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function custom_map_block_info() {
+  $blocks = array();
+
+
+  $blocks['custom_map_location'] = array(
+      'info' => t('Custom Map Location Block'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function custom_map_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+
+    case 'custom_map_location' :
+
+      $block['content'] = custom_map_location();
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function custom_map_theme() {
+  return array(
+      'custom_map_home' => array(
+          'variables' => array(
+              'locations' => array(),
+          ),
+          'template' => 'home-map',
+      ),
+  );
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function custom_map_preprocess_page(&$variables) {
+  drupal_add_css(drupal_get_path('theme', 'expertsearch') . '/map/css/map.css');
+  drupal_add_js(drupal_get_path('theme', 'expertsearch') . '/map/lib/raphael.js');
+  drupal_add_js(drupal_get_path('theme', 'expertsearch') . '/map/map.js');
+  drupal_add_js(drupal_get_path('theme', 'expertsearch') . '/map/settings.js');
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function custom_map_views_pre_render(&$view) {
+
+  if ($view->name == "map_location_experts") {
+
+    $key = $view->args[0];
+    $field = field_info_field('field_maplocation');
+    $output = isset($field['settings']['allowed_values'][$key]) ? $field['settings']['allowed_values'][$key] : '';
+    $view->set_title($output);
+  }
+}
+
+/**
+ * Content for custom map location block.
+ */
+function custom_map_location() {
+  $query = db_select('field_data_field_maplocation', 'f');
+  $query->join('node', 'n', 'n.nid = f.entity_id');
+  $query->fields('f', array('field_maplocation_value'));
+  $query->condition('status', 1, '=');
+  $result = $query->execute();
+
+  $location_value_arr = array();
+  foreach ($result as $obj_result) {
+
+    $location_value_arr[] = $obj_result->field_maplocation_value;
+  }
+
+
+  $location_arr = array_unique($location_value_arr);
+
+
+
+  $variables = array(
+      'locations' => $location_arr,
+  );
+
+  return theme('custom_map_home', $variables);
+}
+
+?>
